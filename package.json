@@ -8,9 +8,14 @@
     "email": "voislav.mishevski@gmail.com",
     "url": ""
   },
-  "main": "generators\\index.js",
+  "main": "app\\index.js",
   "keywords": [
     "yeoman-generator"
+  ],
+  "files": [
+    "app",
+    "property",
+    "model"
   ],
   "dependencies": {
     "chalk": "^1.1.3",
