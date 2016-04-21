@@ -1,0 +1,63 @@
+@@typography.google-font
+
+$site-settings: (
+  colors: (
+    brand: @@colors.brand,
+    primary: @@colors.primary,
+    base: @@colors.base,
+    secondary: @@colors.secondary,
+    text: @@colors.text,
+    link: @@colors.link,
+    positive: @@colors.positive,
+    negative: @@colors.negative,
+    neutral: @@colors.neutral,
+    warning: @@colors.warning,
+    info: @@colors.info,
+    special: @@colors.special,
+    loading-bar: @@colors.loading-bar,
+    loading-spinner: @@colors.loading-spinner
+  ),
+  layout: (
+    sidebar: (
+      width: @@layout.sidebar.width,
+      position: @@layout.sidebar.position,
+      background: @@layout.sidebar.background
+    ),
+    header: (
+      height: @@layout.header.height,
+      background: @@layout.header.background
+    ),
+    footer: (
+      height: @@layout.footer.height,
+      background: @@layout.footer.background
+    ),
+    content: (
+      background: @@layout.content.background
+    ),
+    logo: (
+      background: @@layout.logo.background,
+      padding: @@layout.logo.padding
+    ),
+    type: @@layout.type,
+  ),
+  font: unquote("@@typography.default-font-family")
+) !default;
+
+@function site-settings($setting) {
+  @return map-get($site-settings, $setting);
+}
+
+@function color-settings($color) {
+  $color-settings: site-settings(colors);
+  @return map-get($color-settings, $color);
+}
+
+@function layout-settings($component) {
+  $layout-settings: site-settings(layout);
+  @return map-get($layout-settings, $component);
+}
+
+@function component-settings($component, $setting) {
+  $layout-settings: layout-settings($component);
+  @return map-get($layout-settings, $setting);
+}

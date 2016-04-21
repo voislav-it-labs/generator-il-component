@@ -1,0 +1,19 @@
+$btn-primary-color: color-text(brand);
+$btn-primary-bg: color(brand);
+$btn-primary-border: darken($btn-primary-bg, 5%);
+
+$btn-success-color: color-text(positive);
+$btn-success-bg: color(positive);
+$btn-success-border: darken($btn-success-bg, 5%);
+
+$btn-info-color: color-text(info);
+$btn-info-bg: color(info);
+$btn-info-border: darken($btn-info-bg, 5%);
+
+$btn-warning-color: color-text(warning);
+$btn-warning-bg: color(warning);
+$btn-warning-border: darken($btn-warning-bg, 5%);
+
+$btn-danger-color: color-text(negative);
+$btn-danger-bg: color(negative);
+$btn-danger-border: darken($btn-danger-bg, 5%);

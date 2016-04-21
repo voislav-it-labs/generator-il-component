@@ -1,0 +1,70 @@
+$colors: site-settings(colors) !default;
+
+$colors-layout:(
+  header: component-settings(header, background),
+  footer: component-settings(footer, background),
+  sidebar: component-settings(sidebar, background),
+  content: component-settings(content, background)
+) !default;
+
+$colors-text:(
+  brand: #fff,
+  base: #555,
+  primary: #fff,
+  secondary: #bbb,
+  text: #909090,
+  link: #08c,
+  positive: #fff,
+  negative: #fff,
+  neutral: #fff,
+  warning: #fff,
+  info: #fff,
+  special: #fff,
+  header: #fff,
+  footer: #fff,
+  sidebar: #fff,
+  content: #333
+) !default;
+
+@function color($c) {
+  @return map-get($colors, $c);
+}
+
+@function color-text($c) {
+  @return map-get($colors-text, $c);
+}
+
+@function color-layout($c) {
+  @return map-get($colors-layout, $c);
+}
+
+$color-brightness: 10%;
+
+@function darker($c) {
+  @return darken(color($c), $color-brightness);
+}
+
+@function lighter($c) {
+  @return lighten(color($c), $color-brightness);
+}
+
+// Bootstrap colors
+
+$brand-primary: color(brand);
+
+// Global text color on <body>
+$text-color: color-text(content);
+
+// Global light text color on <body>
+$text-light-color: #fff;
+
+// Global muted text color on <body>
+$text-muted-color: #444;
+
+// Global textual link color.
+$link-color: color(link);
+
+// Link hover color.
+$link-hover-color: darken($link-color, 15%);
+
+$primary-link-color: color(brand);

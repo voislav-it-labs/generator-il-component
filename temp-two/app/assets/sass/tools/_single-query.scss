@@ -1,0 +1,12 @@
+@mixin single-query($width: 767, $column: 3, $break-column: 12) {
+  display: inline-block;
+  vertical-align: top;
+  min-width: 240px;
+  width: percentage($column/12);
+  max-width: percentage($break-column/12);
+  min-width: -webkit-calc(#{percentage($column/12)});
+  min-width: calc(#{percentage($column/12)});
+  width: -webkit-calc(#{$width * $width}px - #{$width * 100}%);
+  width: calc(#{$width * $width}px - #{$width * 100}%);
+  margin-right: -.22em;
+}

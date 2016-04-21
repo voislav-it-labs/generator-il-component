@@ -1,0 +1,389 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: {
+    image: url('../img/5.jpg');
+    repeat: no-repeat;
+    size: cover;
+  };
+  background-attachment: fixed;
+}
+
+
+.animated-view {
+  transition: .3s all linear;
+  position: relative;
+
+  &.ng-enter,
+  &.ng-leave {
+    width: 100%;
+    position: absolute;
+    overflow: hidden;
+    left: 0;
+    transform-origin: 0 0;
+  }
+
+  &.ng-leave {
+    transform-origin: 100% 0;
+  }
+
+  &.ng-enter {
+    transform: translate3d(-100%, 0, 0) scale(.9);
+    opacity: 0;
+  }
+
+  &.ng-enter-active {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 1;
+  }
+
+  &.ng-leave {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 1;
+  }
+
+  &.ng-leave-active {
+    transform: translate3d(100%, 0, 0) scale(1.1);
+    opacity: 0;
+  }
+
+
+  // &.ng-enter-active {
+  //   opacity: 1;
+  //   transform: translate3d(0, 0, 0);
+  // }
+  //
+  // &.ng-leave {
+  //   opacity: 1;
+  //   transform: translate3d(0, -100px, 0);
+  // }
+  //
+  // &.ng-leave-active {
+  //   opacity: 0;
+  //   transform: translate3d(0, 100px, 0);
+  // }
+}
+
+.modal-open {
+  .gi-container {
+    filter: blur(2px);
+  }
+}
+
+.modal {
+  transition: .3s all cubic-bezier(.3,1.4,.3,1.4);
+  transform-origin: 50% 50%;
+  //&.in {}
+
+  //&.in-add {}
+
+  &.in-add-active {
+    transform: scaleX(1.2) scaleY(.8);
+  }
+
+  //&.in-remove {}
+
+  &.in-remove-active {
+    transform: scaleX(1.2) scaleY(.8);
+  }
+}
+
+@mixin full-page {
+  .gi-fullscreen & {
+    @content;
+  }
+}
+
+@mixin sidebar-visible {
+  .gi-sidebar-offset & {
+    @content;
+  }
+}
+@mixin sidebar-animation {
+  .gi-sidebar-offset-add &,
+  .gi-sidebar-offset-add-active &,
+  .gi-sidebar-offset-remove &,
+  .gi-sidebar-offset-remove-active & {
+    @content;
+  }
+}
+@mixin sidebar-animation-start {
+  .gi-sidebar-offset-add &,
+  .gi-sidebar-offset-add-active & {
+    @content;
+  }
+}
+@mixin sidebar-animation-end {
+  .gi-sidebar-offset-remove &,
+  .gi-sidebar-offset-remove-active & {
+    @content;
+  }
+}
+
+@mixin header-visible {
+  .gi-header-offset & {
+    @content;
+  }
+}
+
+@mixin layout-base() {
+  .gi {
+    &-fullscreen {
+      min-height: 100vh;
+    }
+
+    &-container {
+      height: 100%;
+      transition: .3s all ease-in;
+
+      &.gi-sidebar-offset {
+        transition: 0s all ease-in;
+      }
+    }
+
+    &-header {
+      height: $header-height;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+
+    &-sidebar {
+      position: fixed;
+      width: $sidebar-width;
+      bottom: 0;
+      z-index: priority(very-high);
+      transition: .3s width ease-in;
+
+      @mixin hide-sidebar {
+        width: 0;
+
+        .gi-nav {
+          overflow: hidden;
+        }
+      }
+      @mixin show-sidebar {
+        width: $sidebar-width;
+
+        .gi-nav {
+          overflow: hidden;
+        }
+      }
+
+      &.ng-hide-remove {
+        // to start show
+        @include hide-sidebar;
+      }
+
+      &.ng-hide-remove-active {
+        // to end show
+        @include show-sidebar;
+      }
+
+      &.ng-hide-add {
+        // to start hide
+        @include show-sidebar;
+      }
+
+      &.ng-hide-add-active {
+        // to end hide
+        @include hide-sidebar;
+      }
+
+      &.ng-enter {
+        @include hide-sidebar;
+      }
+
+      &.ng-leave {
+        @include show-sidebar;
+      }
+
+      &.ng-leave-active {
+        @include hide-sidebar;
+      }
+
+      &.ng-enter-active {
+        @include show-sidebar;
+      }
+
+      @include respond-to(mobile) {
+        position: fixed;
+      }
+    }
+
+    &-main {
+      background: component-settings(content, background);
+      margin-left: 0;
+      position: relative;
+      min-height: 100%;
+      min-height: calc(100vh - #{$footer-height});
+      overflow: hidden;
+      transition: .3s all ease-in;
+      z-index: priority(very-high);
+
+      @include header-visible {
+        padding-top: $header-height;
+      }
+
+      @include sidebar-visible {
+        margin-left: $sidebar-width;
+
+        @include respond-to(mobile) {
+          margin-left: 0;
+        }
+      }
+
+      @include sidebar-animation {
+        margin-left: 0;
+      }
+
+      @include full-page {
+        background: transparent;
+        height: calc(100% - #{$footer-height});
+        display: table;
+        width: 100%;
+      }
+
+      .gi-fullscreen .gi-sidebar-offset & {
+        width: calc(100% - #{$sidebar-width});
+      }
+    }
+
+    &-content {
+      @include full-page {
+        height: 100%;
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+    &-page-box {
+      display: table;
+      margin: auto;
+      background: component-settings(content, background);
+    }
+
+    &-footer {
+      height: $footer-height;
+      line-height: $footer-height;
+      padding: 0 15px;
+      position: relative;
+      z-index: priority(very-high);
+      background: component-settings(footer, background);
+      color: color-text(footer);
+    }
+
+    &-header {
+      display: table;
+
+      &-nav {
+        display: table-cell;
+        vertical-align: middle;
+        vertical-align: top;
+        width: 10%;
+      }
+
+      &-search {
+        display: table-cell;
+        vertical-align: middle;
+        min-width: 100px;
+
+        &-field {
+          max-width: 320px;
+          margin: 0 0 0 auto;
+        }
+      }
+
+      &-toggle {
+        width: $header-height;
+        line-height: $header-height;
+        text-align: center;
+        cursor: pointer;
+        float: left;
+      }
+    }
+  }
+}
+
+@mixin layout($type) {
+  .gi {
+    @if $type == alpha {
+      &-header {
+        z-index: priority(very-high) + 1;
+      }
+
+      &-sidebar {
+        top: $header-height;
+      }
+
+      &-logo {
+        width: $sidebar-width;
+        display: table-cell;
+        background: component-settings(logo, background);
+        position: relative;
+        text-align: center;
+        padding: $logo-padding;
+        background: component-settings(logo, background);
+
+        &-img {
+          max-width: $sidebar-width;
+          max-height: $header-height - 20;
+        }
+      }
+    }
+    @else if $type == beta {
+      &-header {
+        padding-left: 0;
+        z-index: priority(very-high);
+
+        @include sidebar-visible {
+          padding-left: $sidebar-width;
+        }
+      }
+
+      &-sidebar {
+        top: 0;
+      }
+
+      &-main {
+        z-index: priority(high);
+      }
+
+      &-logo {
+        width: $sidebar-width;
+        display: block;
+        position: relative;
+        text-align: center;
+        padding: $logo-padding;
+        background: component-settings(logo, background);
+
+        &-img {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@include layout-base();
+@include layout(layout-settings(type));
+
+.list {
+  @extend %cf;
+}
+
+.item {
+  //@include single-query(960, 3, 6);
+  @extend .col-md-6;
+  padding: 10px;
+  border: 10px solid transparent;
+  box-shadow: 0 0 0 1px darker(base) inset;
+
+  &:nth-child(2n+1) {
+    clear: left;
+  }
+}

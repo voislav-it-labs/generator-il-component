@@ -1,0 +1,18 @@
+.gi-heading {
+  @extend %cf;
+  margin: 0 -15px 20px;
+  background: darker(base);
+  padding: 15px;
+  color: darker(brand);
+
+  &-title {
+    margin: 0;
+    float: left;
+    font-size: 30px;
+    font-weight: lighter;
+  }
+
+  &-actions {
+    float: right;
+  }
+}

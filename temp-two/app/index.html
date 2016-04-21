@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html ng-app="secondApp" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <!-- build:css assets/css/main.css -->
+    <link rel="stylesheet" href="assets/css/main.css">
+  <!-- endbuild -->
+  <style>
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+      display: none !important;
+    }
+  </style>
+</head>
+<body class="{{'app-page-' + pageClass}}" ng-class="{'gi-fullscreen': fullscreen}" ng-controller="MainController as MainCtrl" ng-cloak>
+  <toaster-container toaster-options="{'position-class': 'toast-top-right'}"></toaster-container>
+  <notify-container></notify-container>
+  <div class="gi-container" ng-class="{
+    'gi-sidebar-offset': MainCtrl.showSidebar && MainCtrl.isAuthenticated(),
+    'gi-header-offset': MainCtrl.isAuthenticated()
+  }">
+    <header ng-controller="HeaderController as HeaderCtrl"
+            ng-if="MainCtrl.isAuthenticated()"
+            class="gi-header">
+      <a class="gi-header-toggle"
+         ng-init="MainCtrl.showSidebar = true"
+         ng-click="MainCtrl.showSidebar = !MainCtrl.showSidebar">
+        &#9776;
+      </a>
+      <div class="gi-header-search">
+        <input type="search" class="gi-header-search-field form-control" placeholder="Search...">
+      </div>
+      <nav class="gi-header-nav">
+        <ul class="gi-header-nav-list">
+          <li class="gi-header-nav-item" ng-repeat="item in HeaderCtrl.items" permission permission-only="item.permissions">
+            <a ui-sref="{{item.route}}" class="gi-header-nav-link">{{item.name}}</a>
+          </li>
+          </li>
+          <li class="gi-header-nav-item gi-header-nav-item-logout">
+            <a class="gi-header-nav-link" href="#" ng-click="MainCtrl.logout()">Logout</a>
+          </li>
+          <li class="gi-header-nav-item gi-header-nav-item-user">
+            <a class="gi-header-nav-link"><b>{{profile.FirstName}}</b></a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <aside ng-controller="SidebarController as SidebarCtrl"
+           ng-if="MainCtrl.isAuthenticated()"
+           ng-show="MainCtrl.showSidebar"
+           class="gi-sidebar">
+      <a class="gi-logo" href="/">
+       <img class="gi-logo-img" src="assets/img/logo.png" alt="">
+      </a>
+      <ul class="gi-nav">
+        <li class="gi-nav-item"
+            ng-repeat="item in SidebarCtrl.items"
+            permission permission-only="item.permissions">
+          <a ui-sref="{{item.route}}" class="gi-nav-link">{{item.name}}</a>
+        </li>
+      </ul>
+    </aside>
+    <main class="gi-main">
+      <div class="container-fluid gi-content animated-view" ui-view></div>
+    </main>
+    <footer class="gi-footer">
+      <span class="gi-copy">&copy; <b>secondApp</b> - 2016</span>
+      <nav class="gi-footer-navigation">
+        <ul class="gi-footer-nav">
+          <li class="gi-footer-nav-item"><a href="" class="gi-footer-nav-link">Lorem ipsum.</a></li>
+          <li class="gi-footer-nav-item"><a href="" class="gi-footer-nav-link">Illo, autem.</a></li>
+          <li class="gi-footer-nav-item"><a href="" class="gi-footer-nav-link">Esse, eius.</a></li>
+        </ul>
+      </nav>
+    </footer>
+  </div>
+
+  <script type="text/javascript" src="vendor.bundle.js"></script>
+  <script type="text/javascript" src="app.bundle.js"></script>
+</body>
+</html>

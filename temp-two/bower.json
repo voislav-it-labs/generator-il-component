@@ -1,0 +1,45 @@
+{
+  "name": "secondApp",
+  "version": "0.0.0",
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "authors": [
+    "Aleksandar Pavlovski",
+    "Voislav Mishevski"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.0",
+    "angular-animate": "^1.5.0",
+    "angular-cookies": "^1.5.0",
+    "angular-resource": "^1.5.0",
+    "angular-route": "^1.5.0",
+    "angular-sanitize": "^1.5.0",
+    "angular-touch": "^1.5.0",
+    "angular-ui-router": "^0.2.18",
+    "angular-bootstrap": "~0.14.2",
+    "bootstrap": "^4.0",
+    "angular-loading-bar": "~0.8.0",
+    "neutroncss": "~0.9.2",
+    "ngstorage": "^0.3.10",
+    "AngularJS-Toaster": "angularjs-toaster#^1.2.0",
+    "restangular": "^1.5.2",
+    "satellizer": "^0.14.0",
+    "angular-permission": "2.3.6",
+    "bootstrap-sass": "^3.3.6",
+    "font-awesome": "^4.5.0"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.5.0"
+  }
+}

@@ -1,0 +1,15 @@
+$header-height: component-settings(header, height) !default;
+$footer-height: component-settings(footer, height) !default;
+$sidebar-width: component-settings(sidebar, width) !default;
+$sidebar-position: component-settings(sidebar, position) !default;
+$logo-padding: component-settings(logo, padding) !default;
+$content-offset: $header-height + $footer-height !default;
+
+@mixin invert-float($position) {
+  @if $position == left {
+    float: right;
+  }
+  @else {
+    float: left;
+  }
+}

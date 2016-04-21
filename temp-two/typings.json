@@ -1,0 +1,18 @@
+{
+  "name": "TypeScript",
+  "dependencies": {},
+  "devDependencies": {},
+  "ambientDependencies": {
+    "angular": "registry:dt/angular#1.5.0+20160412133217",
+    "angular-cookie": "github:DefinitelyTyped/DefinitelyTyped/angular-cookie/angular-cookie.d.ts#7de6c3dd94feaeb21f20054b9f30d5dabc5efabd",
+    "angular-mocks": "registry:dt/angular-mocks#1.3.0+20160412134242",
+    "angular-ui-bootstrap": "github:DefinitelyTyped/DefinitelyTyped/angular-ui-bootstrap/angular-ui-bootstrap.d.ts#5d3116c83ea2aa0afcfef61c8cbbf6d7a4cbc09f",
+    "angular-ui-router": "registry:dt/angular-ui-router#1.1.5+20160412134757",
+    "debug": "registry:dt/debug#0.0.0+20160317120654",
+    "jasmine": "registry:dt/jasmine#2.2.0+20160412134438",
+    "jquery": "github:DefinitelyTyped/DefinitelyTyped/jquery/jquery.d.ts#661fc869669af796c6048483e999dce5732eed72",
+    "lodash": "registry:dt/lodash#3.10.0+20160330154726",
+    "ngstorage": "github:DefinitelyTyped/DefinitelyTyped/ngstorage/ngstorage.d.ts#f59279e1f7535149b4e14d2ccf537b2c81cfff75",
+    "restangular": "github:DefinitelyTyped/DefinitelyTyped/restangular/restangular.d.ts#f2ae460e1751bb6668d291d4eb9255f047dd0ac5"
+  }
+}

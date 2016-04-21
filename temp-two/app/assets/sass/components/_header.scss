@@ -1,0 +1,87 @@
+.gi {
+  &-header {
+    background: component-settings(header, background);
+    background-clip: content-box;
+    color: color-text(header);
+    transition: .3s all ease-in;
+
+    // &.ng-enter-active {
+    //   transform: translateY(0);
+    // }
+    //
+    // &.ng-enter {
+    //   transform: translateY(-100%);
+    // }
+    //
+    // &.ng-leave-active {
+    //   transform: translateY(-100%);
+    // }
+
+    &.ng-enter {
+      transform: translateY(-100%);
+    }
+
+    &.ng-enter-active {
+      transform: translateY(0);
+    }
+
+    &.ng-leave {
+      transform: translateY(-100%);
+    }
+
+    &.ng-leave-active {
+      transform: translateY(0);
+    }
+
+    &-content {
+      //
+    }
+
+    &-nav-list {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      float: right;
+      white-space: nowrap;
+    }
+
+    &-nav-item {
+      display: inline-block;
+    }
+
+    &-nav-link {
+      display: block;
+      padding: 0 15px;
+      line-height: $header-height;
+      cursor: pointer;
+      border-right: 1px solid rgba(0,0,0,.2);
+      color: color-text(header);
+
+      &:hover,
+      &:focus {
+        color: color-text(sidebar);
+      }
+    }
+
+    &-toggle {
+      margin-right: auto;
+      color: color-text(sidebar);
+
+      &:hover,
+      &:focus {
+        color: color-text(sidebar);
+      }
+    }
+
+    &-nav-item-search {
+      //
+    }
+
+    .form-control {
+      color: inherit;
+      background-color: rgba(0,0,0,.25);
+      background-image: none;
+      border: 1px solid color(brand);
+    }
+  }
+}

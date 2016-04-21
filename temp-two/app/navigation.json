@@ -1,0 +1,7 @@
+[
+  {
+    "name": "Users",
+    "route": "users",
+    "permissions": "users.list"
+  }
+]

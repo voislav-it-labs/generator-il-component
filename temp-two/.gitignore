@@ -1,0 +1,10 @@
+node_modules
+bower_components
+dist
+.tmp
+app/config.ts
+Chrome*
+
+# use typescript and amd/commonjs modules and load them using webpack.
+typings
+.tscache

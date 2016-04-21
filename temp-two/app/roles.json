@@ -1,0 +1,26 @@
+{
+    "roles": {
+        "Admin": [
+            "users.view",
+            "users.list",
+            "users.edit",
+            "users.create",
+            "users.delete"
+        ],
+        "Inspector": [
+            "users.list",
+            "users.view"
+        ],
+        "Guest": [
+            "login"
+        ]
+    },
+    "permissions": [
+        "users.list",
+        "users.view",
+        "users.edit",
+        "users.create",
+        "users.delete",
+        "login"
+    ]
+}

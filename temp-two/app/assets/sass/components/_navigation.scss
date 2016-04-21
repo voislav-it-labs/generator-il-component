@@ -1,0 +1,44 @@
+.gi-nav {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  &-item {
+    padding: 15px;
+    border-bottom: 1px solid rgba(0,0,0,.3);
+  }
+
+  &-link {
+    display: block;
+    color: color-text(sidebar);
+
+    &:hover,
+    &:focus {
+      color: color-text(sidebar);
+    }
+  }
+}
+
+.gi-footer-nav {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  &-item {
+    margin: 0 15px 0 0;
+    display: inline;
+
+    &:after {
+      content: '|';
+      margin: 0 0 0 15px;
+    }
+
+    &:last-child:after {
+      content: none;
+    }
+  }
+}
+
+.gi-footer-navigation {
+  float: right;
+}

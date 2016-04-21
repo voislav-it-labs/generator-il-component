@@ -1,0 +1,37 @@
+size: $size {
+  height: $size;
+  width: $size;
+}
+
+size: $height $width {
+  height: $height;
+  width: $width;
+}
+
+position: $position $vertical $horizontal {
+  position: $position;
+  top: $vertical;
+  right: $horizontal;
+  bottom: $vertical;
+  left: $horizontal;
+}
+
+position: $position $top $horizontal $bottom {
+  position: $position;
+  top: $top;
+  right: $horizontal;
+  bottom: $bottom;
+  left: $horizontal;
+}
+
+position: $position $top $right $bottom $left {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+kire: $dir {
+  float: $dir;
+}

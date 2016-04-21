@@ -1,0 +1,13 @@
+.gi {
+  &-sidebar {
+    white-space: nowrap;
+    overflow: auto;
+    background: component-settings(sidebar, background);
+  }
+
+  &-nav {
+    @include sidebar-animation {
+      overflow: hidden;
+    }
+  }
+}

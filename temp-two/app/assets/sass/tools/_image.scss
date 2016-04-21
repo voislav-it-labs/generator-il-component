@@ -1,0 +1,7 @@
+@function image($img) {
+  $path: '../img/';
+  @if($env == 'dev') {
+    $path: '../assets/img/';
+  }
+  @return unquote('url(#{$path}#{$img})');
+}

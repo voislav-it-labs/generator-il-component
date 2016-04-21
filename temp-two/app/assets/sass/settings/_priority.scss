@@ -1,0 +1,12 @@
+$priority: (
+  low: -1,
+  normal: auto,
+  medium: 10,
+  high: 100,
+  very-high: 1000,
+  max: 10000 //avoid
+);
+
+@function priority($level) {
+  @return map-get($priority, $level);
+};

@@ -1,0 +1,93 @@
+{
+  "prefix": "gi",
+  "app": "app",
+  "assets": "app/assets",
+  "dist": "dist",
+  "temp": ".tmp",
+  "ENV": [{
+        "name": "debug",
+        "admin": "http://emergenetics-gi-develop-admin.devweb.office.it-labs.com/",
+        "login": "http://gi-qa-sso.devweb.office.it-labs.com/auth/",
+        "lms": "http://emergenetics-gi-develop-lms.devweb.office.it-labs.com/",
+        "roles": "./roles.json",
+        "defaultState": "users.list"
+      },
+      {
+        "name": "qa",
+        "admin": "http://gi-qa-admin.devweb.office.it-labs.com/",
+        "login": "http://gi-qa-sso.devweb.office.it-labs.com/",
+        "lms": "http://gi-qa-lms.devweb.office.it-labs.com/",
+        "roles": "./roles.json",
+        "defaultState": "users.list"
+      },
+      {
+        "name": "staging",
+        "admin": "http://gi-qa-admin.devweb.office.it-labs.com/",
+        "login": "http://gi-qa-sso.devweb.office.it-labs.com/",
+        "lms": "http://gi-qa-lms.devweb.office.it-labs.com/",
+        "roles": "./roles.json",
+        "defaultState": "users.list"
+      },
+      {
+        "name": "testing",
+        "admin": "http://gi-qa-admin.devweb.office.it-labs.com/",
+        "login": "http://gi-qa-sso.devweb.office.it-labs.com/",
+        "lms": "http://gi-qa-lms.devweb.office.it-labs.com/",
+        "roles": "./roles.json",
+        "defaultState": "users.list"
+      },
+      {
+        "name": "release",
+        "admin": "http://gi-qa-admin.devweb.office.it-labs.com/",
+        "login": "http://gi-qa-sso.devweb.office.it-labs.com/",
+        "lms": "http://gi-qa-lms.devweb.office.it-labs.com/",
+        "roles": "./roles.json",
+        "defaultState": "users.list"
+      }
+  ],
+  "style": {
+    "typography": {
+      "google-font": "@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,800,700);",
+      "default-font-family": "'Open Sans', sans-serif"
+    },
+    "colors": {
+      "brand": "#35b6a1",
+      "primary": "#333",
+      "base": "#fff",
+      "secondary": "#f7f9fa",
+      "text": "#333",
+      "link": "#333",
+      "positive": "#2cc36b",
+      "negative": "#e74c3c",
+      "neutral": "#f5f7fa",
+      "warning": "#e67e22",
+      "info": "#3498db",
+      "special": "#990099",
+      "loading-bar": "#35b6a1",
+      "loading-spinner": "#35b6a1"
+    },
+    "layout": {
+      "type": "beta",
+      "content": {
+        "background": "#fff"
+      },
+      "sidebar": {
+        "width": "250px",
+        "position": "left",
+        "background": "rgba(#35b6a1,.3)"
+      },
+      "header": {
+        "height": "50px",
+        "background": "#444"
+      },
+      "footer": {
+        "height": "30px",
+        "background": "#444"
+      },
+      "logo": {
+        "background": "transparent",
+        "padding": "20px 20px 30px"
+      }
+    }
+  }
+}
