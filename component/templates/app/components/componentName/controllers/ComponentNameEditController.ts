@@ -1,20 +1,20 @@
 import * as angular from 'angular';
-import {I<%= componentNameCapital %>} from './I<%= componentNameCapital %>';
+import {<%= componentNameCapital %>} from '../models/<%= componentNameCapital %>';
 
 export class <%= componentNameCapital %>EditController {
   static $inject: string[] = ['$state', '<%= componentNameCapital %>Repository', '$stateParams'];
   constructor(private $state: angular.ui.IStateService,
               private <%= componentName %>Repository: restangular.IElement,
               private $stateParams: angular.ui.IStateParamsService) {
-    this.id = $stateParams['<%= componentName %>Id'];
+    this.id = this.$stateParams['<%= componentName %>Id'];
     if (this.id !== undefined) {
-      courseRepository.get(this.id).then((<%= componentName %>: I<%= componentNameCapital %>) => {
+      this.<%= componentName %>Repository.get(this.id).then((<%= componentName %>: <%= componentNameCapital %>) => {
         this.<%= componentName %> = <%= componentName %>;
       });
     }
   }
 
-  <%= componentName %>: I<%= componentNameCapital %>;
+  <%= componentName %>: <%= componentNameCapital %>;
   private id: string;
 
   save(): void {
@@ -30,13 +30,13 @@ export class <%= componentNameCapital %>EditController {
   }
 
   private create(): void {
-    this.<%= componentName %>Repository.post(this.<%= componentName %>).then((c: I<%= componentNameCapital %>) => {
+    this.<%= componentName %>Repository.post(this.<%= componentName %>).then((c: <%= componentNameCapital %>) => {
       this.$state.go('<%= componentNamePlural %>.list');
     });
   }
 
   private edit(): void {
-    this.<%= componentName %>.save().then((c: I<%= componentNameCapital %>) => {
+    this.<%= componentName %>.save().then((c: <%= componentNameCapital %>) => {
       this.$state.go('<%= componentNamePlural %>.list');
     });
   }

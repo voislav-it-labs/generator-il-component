@@ -1,5 +1,5 @@
 {
-  "name": "secondApp",
+  "name": "<%= appName %>",
   "version": "0.0.6",
   "description": "front-end scaffold",
   "main": "app/app.js",

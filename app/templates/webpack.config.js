@@ -39,17 +39,17 @@ module.exports = {
       {
         test: /\.html$/,
         include: [path.resolve(__dirname, 'app')],
-        loader: 'ngtemplate?module=myApp&relativeTo=' + (path.resolve(__dirname, './gi.core/app')) + '/!html'
+        loader: 'ngtemplate?module=<%= appName %>.templates&relativeTo=' + (path.resolve(__dirname, './app')) + '/!html'
       },
       {
         test: /\.html$/,
         include: [path.resolve(__dirname, 'gi.core')],
-        loader: 'ngtemplate?module=gi&relativeTo=' + (path.resolve(__dirname, './gi.core/app')) + '/!html'
+        loader: 'ngtemplate?module=gi.templates&relativeTo=' + (path.resolve(__dirname, './gi.core/app')) + '/!html'
       }
     ]
   },
 
-  devtool: 'source-map',
+  devtool: 'eval',
 
   plugins: [
     new webpack.ResolverPlugin([

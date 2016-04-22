@@ -1,10 +1,14 @@
-import * as angular from 'angular';
 import {name as giName} from '../gi.core/app/app';
+import * as demo from './components/demo/module';
+import * as angular from 'angular';
+angular.module('<%= appName %>.templates', []);
 
-export let name = 'secondApp';
+export let name = '<%= appName %>';
 
 angular.module(name, [
-  giName
+  giName,
+  demo.name,
+  '<%= appName %>.templates'
 ])
 .config(config);
 
@@ -22,6 +26,6 @@ function config(
 
   $urlRouterProvider.otherwise(($injector) => {
     let $state = $injector.get('$state');
-    $state.go('users.list');
+    $state.go('demo');
   });
 }

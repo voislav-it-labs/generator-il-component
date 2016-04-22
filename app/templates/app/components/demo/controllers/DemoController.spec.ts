@@ -6,7 +6,7 @@ describe('DemoController', () => {
     ctrl: DemoController;
 
   beforeEach(() => {
-    angular.mock.module('secondApp.demo');
+    angular.mock.module('<%= appName %>.demo');
     inject((_$controller_) => {
       $controller = _$controller_;
     });
