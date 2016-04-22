@@ -20,7 +20,7 @@ export class <%= componentNameCapital %>Controller extends gi.baseItems.BaseList
 
     let filterConfig: gi.baseItems.FiltersConfiguration = [];
     let initialPagination: gi.baseItems.PaginationRequest = new gi.baseItems.PaginationRequest();
-    let repository: gi.baseItems.RestangularItemsRepository<<%= componentNameCapital %>> = new gi.baseItems.RestangularItemsRepository<<%= componentNameCapital %>>(restangular.all('<%= componentName %>'));
+    let repository: gi.baseItems.RestangularItemsRepository<<%= componentNameCapital %>> = new gi.baseItems.RestangularItemsRepository<<%= componentNameCapital %>>(restangular.all('<%= componentNamePlural %>'));
 
     this.init(filterConfig, initialPagination, repository)
       .then(() => {

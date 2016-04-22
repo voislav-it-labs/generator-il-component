@@ -1,25 +1,23 @@
 <div class="row">
-  <button ng-click="CoursesCtrl.add()" class="btn btn-primary">Add</button>
+  <button ng-click="<%= componentNameCapitalPlural %>Ctrl.add()" class="btn btn-primary">Add</button>
 
 
-  <form class="form-inline">
-    <div class="form-group">
-      <label for="name">Name</label>
-      <input type="text" name="name" placeholder="Filter by name"
-        ng-model="CoursesCtrl.filters.name"
-        class="form-control" />
-    </div>
-  </form>
-  <table ng-table="CoursesCtrl.tableParams" class="table table-striped" show-filter="true">
-      <tr ng-repeat="course in $data">
-          <td title="'Name'" filter="{ id: 'text'}" sortable="'id'">
-              {{course.id}}</td>
-          <td title="'Age'" filter="{ name: 'text'}" sortable="'name'">
-              {{course.name}}</td>
-          <td>
-            <button type="button" class="btn btn-default" ng-click="CoursesCtrl.edit(course)">Edit</button>
-          </td>
+  <div style="margin-top:70px;">
+    <gi-filters filters="<%= componentNameCapitalPlural %>Ctrl.filters" query-items="<%= componentNameCapitalPlural %>Ctrl.queryItems()"></gi-filters>
+    <table class="table table-stripped">
+      <thead>
+      <tr>
+        <th>id</th>
+        <th>name</th>
       </tr>
-  </table>
-
+      </thead>
+      <tbody>
+      <tr ng-repeat="<%= componentName %> in <%= componentNameCapitalPlural %>Ctrl.items">
+        <td>{{<%= componentName %>.id}}</td>
+        <td>{{<%= componentName %>.name}}</td>
+      </tr>
+      </tbody>
+    </table>
+    <gi-pagination pagination-model="<%= componentNameCapitalPlural %>Ctrl.requestModel.pagination" query-items="<%= componentNameCapitalPlural %>Ctrl.queryItems()"></gi-pagination>
+  </div>
 </div>

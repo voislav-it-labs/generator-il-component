@@ -1,6 +1,4 @@
-import * as restangular from 'restangular';
-
-export interface <%= componentNameCapital %>  extends restangular.IElement {
+export interface <%= componentNameCapital %>  {
   id: string;
   name: string;
 }

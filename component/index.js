@@ -56,8 +56,6 @@ module.exports = yeoman.Base.extend({
 
     this.dirname = (this.componentName.indexOf('/') >= 0) ? path.dirname(this.componentName) : this.componentName;
 
-    this.log('user chosed: ' + this.props.componentName);
-
     this.config.save();
 
     this.processDirectory = helpers.processDirectory.bind(this);
